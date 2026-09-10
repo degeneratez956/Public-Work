@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revenue Share Agreement — Migo World Entertainment</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; color: #1a1a1a; }
+  .wrapper { max-width: 600px; margin: 0 auto; background: #ffffff; }
+  .header { background: #000000; padding: 32px 24px; text-align: center; }
+  .header h1 { color: #ffffff; font-size: 22px; font-weight: 700; letter-spacing: 1px; }
+  .header p { color: #aaaaaa; font-size: 13px; margin-top: 6px; }
+  .disclaimer { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 14px 18px; margin: 0; }
+  .disclaimer p { font-size: 13px; color: #92400e; line-height: 1.5; }
+  .parties { padding: 24px; background: #f9f9f9; border-bottom: 1px solid #f0f0f0; }
+  .party-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; border-bottom: 1px solid #eeeeee; }
+  .party-row:last-child { border-bottom: none; }
+  .party-label { color: #888888; font-weight: 600; }
+  .party-value { color: #1a1a1a; font-weight: 700; text-align: right; }
+  .section { padding: 28px 24px; border-bottom: 1px solid #f0f0f0; }
+  .section:last-child { border-bottom: none; }
+  .section-num { display: inline-block; background: #000000; color: #ffffff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; letter-spacing: 1px; }
+  .section h2 { font-size: 17px; font-weight: 700; color: #000000; margin-bottom: 14px; }
+  .section p { font-size: 14px; line-height: 1.6; color: #444444; margin-bottom: 10px; }
+  .highlight-box { background: #000000; color: #ffffff; border-radius: 8px; padding: 20px; margin: 16px 0; text-align: center; }
+  .highlight-box .rate { font-size: 36px; font-weight: 800; color: #ffffff; }
+  .highlight-box .rate-label { font-size: 13px; color: #aaaaaa; margin-top: 4px; }
+  .def-item { padding: 10px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; color: #444444; padding-left: 20px; position: relative; line-height: 1.5; }
+  .def-item:last-child { border-bottom: none; }
+  .def-item::before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: 700; }
+  .exclude-item { padding: 10px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; color: #444444; padding-left: 20px; position: relative; line-height: 1.5; }
+  .exclude-item:last-child { border-bottom: none; }
+  .exclude-item::before { content: "✕"; position: absolute; left: 0; color: #ef4444; font-weight: 700; }
+  .payment-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; }
+  .payment-row:last-child { border-bottom: none; }
+  .payment-label { color: #888888; font-weight: 600; }
+  .payment-value { color: #1a1a1a; font-weight: 700; }
+  .formula-box { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .formula-box .formula-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #0369a1; margin-bottom: 12px; }
+  .formula-box .formula { font-size: 16px; font-weight: 800; color: #0c4a6e; text-align: center; padding: 12px; background: #ffffff; border-radius: 6px; margin-bottom: 14px; }
+  .example-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 13px; border-bottom: 1px solid #e0f2fe; }
+  .example-row:last-child { border-bottom: none; }
+  .example-label { color: #0369a1; }
+  .example-value { color: #0c4a6e; font-weight: 700; }
+  .cap-row { display: flex; justify-content: space-between; padding: 8px 0; margin-top: 10px; font-size: 13px; }
+  .cap-label { color: #888888; }
+  .cap-value { font-weight: 700; color: #1a1a1a; }
+  .resp-col { margin-bottom: 20px; }
+  .resp-col h3 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888888; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #eeeeee; }
+  .resp-item { font-size: 14px; color: #444444; padding: 7px 0 7px 20px; border-bottom: 1px solid #f9f9f9; position: relative; line-height: 1.5; }
+  .resp-item:last-child { border-bottom: none; }
+  .resp-item::before { content: "→"; position: absolute; left: 0; color: #000000; }
+  .sig-block { border: 1px solid #e8e8e8; border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+  .sig-name { font-size: 15px; font-weight: 700; color: #000000; margin-bottom: 16px; }
+  .sig-line { border-bottom: 1px solid #cccccc; margin-bottom: 6px; height: 36px; }
+  .sig-label { font-size: 11px; color: #aaaaaa; text-transform: uppercase; letter-spacing: 1px; }
+  .footer { background: #f9f9f9; padding: 20px 24px; text-align: center; }
+  .footer p { font-size: 12px; color: #aaaaaa; }
+  @media (max-width: 480px) {
+    .party-row { flex-direction: column; gap: 2px; }
+    .party-value { text-align: left; }
+    .payment-row { flex-direction: column; gap: 2px; }
+    .example-row { flex-direction: column; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>REVENUE SHARE AGREEMENT</h1>
+    <p>Migo World Entertainment LLC × Danny</p>
+    <p style="margin-top:4px;">September 10, 2026</p>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <p>⚠️ <strong>Note:</strong> This is a draft agreement, not legal advice. Both parties should review with an attorney before signing.</p>
+  </div>
+
+  <!-- PARTIES -->
+  <div class="parties">
+    <div class="party-row"><span class="party-label">Artist</span><span class="party-value">[MIGO FULL LEGAL NAME]</span></div>
+    <div class="party-row"><span class="party-label">Business</span><span class="party-value">Migo World Entertainment LLC</span></div>
+    <div class="party-row"><span class="party-label">Web Designer</span><span class="party-value">[DANNY FULL LEGAL NAME]</span></div>
+    <div class="party-row"><span class="party-label">Date</span><span class="party-value">[DATE]</span></div>
+    <div class="party-row"><span class="party-label">Effective</span><span class="party-value">Upon signing</span></div>
+  </div>
+
+  <!-- SECTION 1: SERVICES -->
+  <div class="section">
+    <div class="section-num">SECTION 1</div>
+    <h2>Services Provided</h2>
+    <p>Web Designer agrees to design, build, and launch a professional entertainment website at no upfront cost, including:</p>
+    <div class="def-item">Full website design and development (Framer)</div>
+    <div class="def-item">Payment processing integration (Stripe online + Helcim in-person)</div>
+    <div class="def-item">Event ticketing and registration system</div>
+    <div class="def-item">Merchandise store setup (Printful integration)</div>
+    <div class="def-item">Music and streaming integration</div>
+    <div class="def-item">Livestreaming capability</div>
+    <div class="def-item">Legal pages (Terms of Service, Privacy Policy, Refund Policy)</div>
+    <div class="def-item">Security setup (SSL, 2FA guidance, CAPTCHA)</div>
+    <div class="def-item">30 days post-launch support — bug fixes and minor updates</div>
+  </div>
+
+  <!-- SECTION 2: REVENUE SHARE -->
+  <div class="section">
+    <div class="section-num">SECTION 2</div>
+    <h2>Compensation — Revenue Share</h2>
+
+    <div class="highlight-box">
+      <div class="rate">2%</div>
+      <div class="rate-label">of Gross Revenue · Ongoing · For Life of Website</div>
+    </div>
+
+    <p><strong>Gross Revenue includes:</strong></p>
+    <div class="def-item">Event ticket sales (online and in-person)</div>
+    <div class="def-item">Event registration fees (youth camps, workshops, community events)</div>
+    <div class="def-item">Merchandise sales (physical and digital)</div>
+    <div class="def-item">Livestream ticket or access sales</div>
+    <div class="def-item">VIP packages, table reservations, premium experiences</div>
+    <div class="def-item">Any product or service sold through or promoted via the website</div>
+
+    <p style="margin-top:16px;"><strong>NOT included:</strong></p>
+    <div class="exclude-item">Confirmed chargebacks and reversed fraudulent transactions</div>
+    <div class="exclude-item">Full refunds issued to customers</div>
+    <div class="exclude-item">Sponsorship income not processed through the website</div>
+    <div class="exclude-item">Performance income booked through third-party agents</div>
+
+    <p style="margin-top:16px;"><strong>Payment schedule:</strong></p>
+    <div class="payment-row"><span class="payment-label">Due date</span><span class="payment-value">Within 15 days after month end</span></div>
+    <div class="payment-row"><span class="payment-label">Method</span><span class="payment-value">Zelle / Venmo / Bank Transfer</span></div>
+    <div class="payment-row"><span class="payment-label">Statement</span><span class="payment-value">Artist provides monthly revenue summary</span></div>
+    <div class="payment-row"><span class="payment-label">Verification</span><span class="payment-value">Web Designer may request transaction records</span></div>
+  </div>
+
+  <!-- SECTION 3: TERMINATION -->
+  <div class="section">
+    <div class="section-num">SECTION 3</div>
+    <h2>Duration & Termination</h2>
+
+    <p>This agreement begins on the date signed and continues indefinitely while the website is active. Either party may terminate with <strong>30 days written notice</strong> (text or email acceptable).</p>
+
+    <div class="formula-box">
+      <div class="formula-title">If Artist Terminates — Buyout Formula</div>
+      <div class="formula">(Avg Monthly Gross × 2%) × 24 months</div>
+      <div class="example-row"><span class="example-label">Site avg $5,000/mo gross</span><span class="example-value">$100/mo × 24 = $2,400</span></div>
+      <div class="example-row"><span class="example-label">Site avg $10,000/mo gross</span><span class="example-value">$200/mo × 24 = $4,800</span></div>
+      <div class="example-row"><span class="example-label">Site avg $40,000/mo gross</span><span class="example-value">$800/mo × 24 = $19,200</span></div>
+      <div class="cap-row"><span class="cap-label">Minimum buyout</span><span class="cap-value">$500</span></div>
+      <div class="cap-row"><span class="cap-label">Maximum buyout (cap)</span><span class="cap-value">$25,000</span></div>
+    </div>
+
+    <p>Average calculated from the <strong>3 most recent full calendar months</strong> at time of termination notice.</p>
+    <p style="margin-top:10px;">If <strong>Web Designer terminates</strong>: Artist keeps the website. Revenue share ends. No buyout required.</p>
+    <p style="margin-top:10px;">If <strong>website goes inactive</strong>: Revenue share pauses. Resumes automatically if website reactivates.</p>
+  </div>
+
+  <!-- SECTION 4: OWNERSHIP -->
+  <div class="section">
+    <div class="section-num">SECTION 4</div>
+    <h2>Ownership</h2>
+    <div class="def-item">Artist owns the domain, content, branding, and all business data at all times</div>
+    <div class="def-item">Web Designer may display this project in their portfolio (with Artist's approval on specific images)</div>
+    <div class="def-item">Artist receives a perpetual license to use the website while this agreement is active</div>
+    <div class="def-item">Upon buyout completion, full ownership of code and design transfers to Artist</div>
+  </div>
+
+  <!-- SECTION 5: RESPONSIBILITIES -->
+  <div class="section">
+    <div class="section-num">SECTION 5</div>
+    <h2>Responsibilities</h2>
+
+    <div class="resp-col">
+      <h3>Artist Agrees To</h3>
+      <div class="resp-item">Provide all content — photos, bio, music links, event info, merch</div>
+      <div class="resp-item">Set up and maintain Stripe and Helcim accounts in good standing</div>
+      <div class="resp-item">Pay Framer Pro subscription (~$25/mo) directly</div>
+      <div class="resp-item">Respond within 3 business days during build phase</div>
+      <div class="resp-item">Report gross revenue honestly and on time monthly</div>
+      <div class="resp-item">Not use the website for illegal activity</div>
+    </div>
+
+    <div class="resp-col">
+      <h3>Web Designer Agrees To</h3>
+      <div class="resp-item">Build and launch as described in this agreement</div>
+      <div class="resp-item">Keep all Artist business information strictly confidential</div>
+      <div class="resp-item">Not sell or share Artist's data with third parties</div>
+      <div class="resp-item">Provide 30 days post-launch bug fix support</div>
+      <div class="resp-item">Give reasonable notice before any major site changes</div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: LIABILITY -->
+  <div class="section">
+    <div class="section-num">SECTION 6</div>
+    <h2>Liability</h2>
+    <div class="def-item"><strong>Payment processing:</strong> Artist solely responsible for Stripe and Helcim accounts. Web Designer not liable for holds, freezes, or fee changes.</div>
+    <div class="def-item"><strong>Youth events:</strong> Artist fully responsible for legal compliance — waivers, insurance, safety. Digital waivers on the site are a tool, not a legal substitute.</div>
+    <div class="def-item"><strong>Downtime:</strong> Web Designer not liable for downtime caused by Framer, Stripe, Helcim, or any third-party service.</div>
+    <div class="def-item"><strong>Maximum liability:</strong> Web Designer's total liability shall not exceed revenue share payments received in the prior 3 months.</div>
+  </div>
+
+  <!-- SECTION 7: DISPUTE -->
+  <div class="section">
+    <div class="section-num">SECTION 7</div>
+    <h2>Dispute Resolution</h2>
+    <div class="def-item">Step 1: Direct conversation between both parties</div>
+    <div class="def-item">Step 2: If unresolved within 14 days → neutral third-party mediation</div>
+    <div class="def-item">Governing law: State of Texas</div>
+  </div>
+
+  <!-- SECTION 8: SIGNATURES -->
+  <div class="section">
+    <div class="section-num">SECTION 8</div>
+    <h2>Signatures</h2>
+    <p style="margin-bottom:20px;">By signing below, both parties agree to the terms of this agreement.</p>
+
+    <div class="sig-block">
+      <div class="sig-name">Artist — YSG Migo / Migo World Entertainment LLC</div>
+      <div class="sig-line"></div>
+      <div class="sig-label">Full Legal Name</div>
+      <div class="sig-line" style="margin-top:16px;"></div>
+      <div class="sig-label">Signature</div>
+      <div class="sig-line" style="margin-top:16px;"></div>
+      <div class="sig-label">Date</div>
+    </div>
+
+    <div class="sig-block">
+      <div class="sig-name">Web Designer — Danny</div>
+      <div class="sig-line"></div>
+      <div class="sig-label">Full Legal Name</div>
+      <div class="sig-line" style="margin-top:16px;"></div>
+      <div class="sig-label">Signature</div>
+      <div class="sig-line" style="margin-top:16px;"></div>
+      <div class="sig-label">Date</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>Draft prepared September 10, 2026 · Not legal advice</p>
+    <p style="margin-top:4px;">Migo World Entertainment LLC × Danny</p>
+  </div>
+
+</div>
+</body>
+</html>

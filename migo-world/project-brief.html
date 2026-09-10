@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Brief — Migo World Entertainment</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; color: #1a1a1a; }
+  .wrapper { max-width: 600px; margin: 0 auto; background: #ffffff; }
+  .header { background: #000000; padding: 32px 24px; text-align: center; }
+  .header h1 { color: #ffffff; font-size: 22px; font-weight: 700; letter-spacing: 1px; }
+  .header p { color: #aaaaaa; font-size: 13px; margin-top: 6px; }
+  .section { padding: 28px 24px; border-bottom: 1px solid #f0f0f0; }
+  .section:last-child { border-bottom: none; }
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #888888; margin-bottom: 16px; }
+  .section h2 { font-size: 18px; font-weight: 700; color: #000000; margin-bottom: 12px; }
+  .section p { font-size: 15px; line-height: 1.6; color: #444444; margin-bottom: 10px; }
+  .info-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; }
+  .info-row:last-child { border-bottom: none; }
+  .info-label { color: #888888; font-weight: 600; flex: 0 0 40%; }
+  .info-value { color: #1a1a1a; flex: 0 0 58%; text-align: right; }
+  .goal-list { list-style: none; }
+  .goal-list li { font-size: 15px; color: #444444; padding: 8px 0; border-bottom: 1px solid #f5f5f5; padding-left: 20px; position: relative; line-height: 1.5; }
+  .goal-list li:last-child { border-bottom: none; }
+  .goal-list li::before { content: "→"; position: absolute; left: 0; color: #000000; font-weight: 700; }
+  .page-card { background: #f9f9f9; border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; }
+  .page-card .page-name { font-size: 15px; font-weight: 700; color: #000000; }
+  .page-card .page-desc { font-size: 13px; color: #666666; margin-top: 4px; }
+  .feature-block { margin-bottom: 20px; }
+  .feature-block h3 { font-size: 14px; font-weight: 700; color: #000000; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 2px solid #000000; display: inline-block; }
+  .feature-list { list-style: none; }
+  .feature-list li { font-size: 14px; color: #444444; padding: 5px 0; padding-left: 16px; position: relative; }
+  .feature-list li::before { content: "•"; position: absolute; left: 0; color: #888888; }
+  .callout { background: #000000; color: #ffffff; border-radius: 8px; padding: 16px 18px; margin: 16px 0; }
+  .callout .callout-title { font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #aaaaaa; margin-bottom: 6px; }
+  .callout .callout-value { font-size: 20px; font-weight: 700; color: #ffffff; }
+  .callout .callout-sub { font-size: 13px; color: #aaaaaa; margin-top: 4px; }
+  .processor-card { border: 1px solid #e8e8e8; border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+  .processor-card .proc-name { font-size: 16px; font-weight: 700; color: #000000; }
+  .processor-card .proc-use { font-size: 12px; color: #888888; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .processor-card .proc-fee { font-size: 14px; color: #444444; margin-bottom: 6px; }
+  .processor-card .proc-why { font-size: 13px; color: #666666; line-height: 1.5; }
+  .savings-box { background: #f0faf0; border-left: 4px solid #22c55e; border-radius: 4px; padding: 12px 14px; margin-top: 12px; font-size: 14px; color: #166534; font-weight: 600; }
+  .fee-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
+  .fee-table th { background: #f5f5f5; padding: 8px 10px; text-align: left; font-weight: 700; color: #444444; }
+  .fee-table td { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; color: #444444; }
+  .fee-table td:last-child { color: #166534; font-weight: 700; }
+  .stack-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f5f5f5; }
+  .stack-row:last-child { border-bottom: none; }
+  .stack-function { font-size: 13px; color: #888888; flex: 0 0 35%; }
+  .stack-tool { font-size: 14px; font-weight: 700; color: #000000; flex: 0 0 40%; }
+  .stack-cost { font-size: 13px; color: #444444; flex: 0 0 22%; text-align: right; }
+  .timeline-item { display: flex; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid #f5f5f5; }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-day { background: #000000; color: #ffffff; font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 4px; flex-shrink: 0; margin-right: 14px; margin-top: 2px; white-space: nowrap; }
+  .timeline-text { font-size: 14px; color: #444444; line-height: 1.5; }
+  .checklist-group { margin-bottom: 20px; }
+  .checklist-group h3 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888888; margin-bottom: 10px; }
+  .check-item { display: flex; align-items: flex-start; padding: 7px 0; border-bottom: 1px solid #f9f9f9; font-size: 14px; color: #444444; }
+  .check-item:last-child { border-bottom: none; }
+  .check-box { width: 18px; height: 18px; border: 2px solid #dddddd; border-radius: 4px; flex-shrink: 0; margin-right: 12px; margin-top: 1px; }
+  .legal-item { display: flex; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #f5f5f5; }
+  .legal-item:last-child { border-bottom: none; }
+  .legal-num { background: #000000; color: #ffffff; font-size: 12px; font-weight: 700; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-right: 12px; }
+  .legal-text h4 { font-size: 14px; font-weight: 700; color: #000000; }
+  .legal-text p { font-size: 13px; color: #666666; margin-top: 2px; }
+  .footer { background: #f9f9f9; padding: 20px 24px; text-align: center; }
+  .footer p { font-size: 12px; color: #aaaaaa; }
+  @media (max-width: 480px) {
+    .info-row { flex-direction: column; gap: 2px; }
+    .info-value { text-align: left; }
+    .stack-row { flex-wrap: wrap; gap: 4px; }
+    .stack-cost { flex: 0 0 100%; text-align: left; color: #888888; }
+    .fee-table { font-size: 12px; }
+    .fee-table th, .fee-table td { padding: 6px 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>PROJECT BRIEF</h1>
+    <p>Migo World Entertainment — Website Build</p>
+    <p style="margin-top:4px;">Prepared September 10, 2026</p>
+  </div>
+
+  <!-- CLIENT OVERVIEW -->
+  <div class="section">
+    <div class="section-label">Client Overview</div>
+    <div class="info-row"><span class="info-label">Artist</span><span class="info-value">YSG Migo</span></div>
+    <div class="info-row"><span class="info-label">Business</span><span class="info-value">Migo World Entertainment LLC</span></div>
+    <div class="info-row"><span class="info-label">Industry</span><span class="info-value">Entertainment</span></div>
+    <div class="info-row"><span class="info-label">Location</span><span class="info-value">San Antonio / McAllen, TX</span></div>
+    <div class="info-row"><span class="info-label">Current Setup</span><span class="info-value">JotForm + Square</span></div>
+    <div class="info-row" style="border:none;padding-top:14px;">
+      <span class="info-label" style="color:#1a1a1a;font-size:13px;">Notable Work</span>
+    </div>
+    <ul class="feature-list" style="margin-top:6px;">
+      <li>Rapper / recording artist</li>
+      <li>Event promoter</li>
+      <li>Youth Basketball Camp w/ San Antonio Spurs player</li>
+    </ul>
+  </div>
+
+  <!-- PROJECT GOAL -->
+  <div class="section">
+    <div class="section-label">Project Goal</div>
+    <p style="margin-bottom:16px;">Build a <strong>professional, all-in-one entertainment website</strong> that:</p>
+    <ul class="goal-list">
+      <li>Acts as his digital headquarters — everything lives here</li>
+      <li>Replaces JotForm + Square with a cleaner, cheaper system</li>
+      <li>Makes it easy for fans to find music, buy merch, and RSVP to events</li>
+      <li>Makes it easy for promoters and venues to book him</li>
+      <li>Gives him livestreaming capability for virtual events</li>
+      <li>Is legally protected — terms, privacy, waivers for youth events</li>
+      <li>Is secure against hacks, fraud, and data breaches</li>
+    </ul>
+  </div>
+
+  <!-- PAGES -->
+  <div class="section">
+    <div class="section-label">What We're Building — 7 Pages</div>
+    <div class="page-card"><div class="page-name">🏠 Home</div><div class="page-desc">First impression — who he is, what he does, what to do next</div></div>
+    <div class="page-card"><div class="page-name">🎵 Music</div><div class="page-desc">All music in one place — streaming embeds + free access</div></div>
+    <div class="page-card"><div class="page-name">🎟️ Events</div><div class="page-desc">Upcoming shows, past events, tickets, VIP, RSVP</div></div>
+    <div class="page-card"><div class="page-name">👕 Store</div><div class="page-desc">Merch — shirts, hats, limited drops, bundles</div></div>
+    <div class="page-card"><div class="page-name">📋 Bookings / EPK</div><div class="page-desc">Professional booking page for venues and promoters</div></div>
+    <div class="page-card"><div class="page-name">👤 About</div><div class="page-desc">His story, community work, career highlights</div></div>
+    <div class="page-card"><div class="page-name">✉️ Contact</div><div class="page-desc">Separate inboxes for booking, press, merch, general</div></div>
+  </div>
+
+  <!-- KEY FEATURES -->
+  <div class="section">
+    <div class="section-label">Key Features</div>
+
+    <div class="feature-block">
+      <h3>Music</h3>
+      <ul class="feature-list">
+        <li>Embedded Spotify + Apple Music players</li>
+        <li>YouTube music video section</li>
+        <li>SoundCloud for freestyles / unreleased</li>
+        <li>Smart link — one link routes fans to their app</li>
+        <li>Optional free download (builds email list)</li>
+      </ul>
+    </div>
+
+    <div class="feature-block">
+      <h3>Events & Ticketing</h3>
+      <ul class="feature-list">
+        <li>Upcoming event calendar</li>
+        <li>Individual event landing pages with checkout</li>
+        <li>Ticket sales directly on the website — no JotForm</li>
+        <li>Digital registration + waiver for youth events</li>
+        <li>VIP / table reservations</li>
+        <li>Past events photo gallery</li>
+        <li>RSVP + waitlist</li>
+      </ul>
+    </div>
+
+    <div class="feature-block">
+      <h3>Store / Merch</h3>
+      <ul class="feature-list">
+        <li>Clean product grid, mobile-first</li>
+        <li>Print-on-demand via Printful — no inventory needed</li>
+        <li>Ticket + merch bundles</li>
+        <li>Discount codes</li>
+        <li>Order tracking</li>
+      </ul>
+    </div>
+
+    <div class="feature-block">
+      <h3>Bookings</h3>
+      <ul class="feature-list">
+        <li>Professional EPK page + downloadable PDF</li>
+        <li>High-res press photo downloads</li>
+        <li>Booking inquiry form (date, venue, budget, attendance)</li>
+      </ul>
+    </div>
+
+    <div class="feature-block">
+      <h3>Livestreaming</h3>
+      <ul class="feature-list">
+        <li>Embedded YouTube Live or Twitch on HIS website</li>
+        <li>Fans watch on his site — not YouTube's homepage</li>
+        <li>Future: paid livestream tickets via Stripe</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PAYMENT PROCESSING -->
+  <div class="section">
+    <div class="section-label">Payment Processing — Replacing Square</div>
+
+    <div class="callout">
+      <div class="callout-title">The Problem with Square</div>
+      <div class="callout-value">$1,200+ in fees</div>
+      <div class="callout-sub">On the basketball camp alone (~$40K gross at 2.9% + $0.30/transaction)</div>
+    </div>
+
+    <div class="processor-card">
+      <div class="proc-use">Online Checkout</div>
+      <div class="proc-name">Stripe</div>
+      <div class="proc-fee">2.9% + $0.30 per transaction · $0/month</div>
+      <div class="proc-why">Integrates directly into the website. Handles merch, tickets, registrations, and livestream access. Built-in fraud protection. Industry standard.</div>
+    </div>
+
+    <div class="processor-card">
+      <div class="proc-use">In-Person Events</div>
+      <div class="proc-name">Helcim</div>
+      <div class="proc-fee">Interchange + 0.25% + $0.08 · $0/month</div>
+      <div class="proc-why">Interchange-plus pricing — significantly cheaper than Square's flat rate for large-ticket events.</div>
+      <div class="savings-box">💰 Save ~$400 per $40K event vs Square</div>
+    </div>
+
+    <p style="font-size:13px;color:#888;margin-top:12px;font-style:italic;">Real fee comparison on a $160 youth camp registration:</p>
+    <table class="fee-table">
+      <tr><th>Processor</th><th>Card Type</th><th>Fee</th><th>You Save</th></tr>
+      <tr><td>Square</td><td>Any</td><td>$4.94</td><td>—</td></tr>
+      <tr><td>Stripe</td><td>Any</td><td>$4.94</td><td>$0.00</td></tr>
+      <tr><td>Helcim</td><td>Debit</td><td>$1.85</td><td>$3.09</td></tr>
+      <tr><td>Helcim</td><td>Credit</td><td>$3.61</td><td>$1.33</td></tr>
+    </table>
+  </div>
+
+  <!-- LEGAL PROTECTION -->
+  <div class="section">
+    <div class="section-label">Legal & Security Protection</div>
+
+    <p style="font-size:14px;font-weight:700;color:#000;margin-bottom:12px;">Required Legal Pages</p>
+    <div class="legal-item"><div class="legal-num">1</div><div class="legal-text"><h4>Terms of Service</h4><p>Covers refunds, cancellations, merch returns</p></div></div>
+    <div class="legal-item"><div class="legal-num">2</div><div class="legal-text"><h4>Privacy Policy</h4><p>Required by law — collecting emails + payments</p></div></div>
+    <div class="legal-item"><div class="legal-num">3</div><div class="legal-text"><h4>Refund Policy</h4><p>Events (no refund) vs merch (exchanges)</p></div></div>
+    <div class="legal-item"><div class="legal-num">4</div><div class="legal-text"><h4>Cookie Policy</h4><p>Required for compliance</p></div></div>
+
+    <p style="font-size:14px;font-weight:700;color:#000;margin:20px 0 12px;">Youth Event Protection</p>
+    <ul class="feature-list">
+      <li>Digital liability waiver — parents sign before checkout</li>
+      <li>Photo / video release consent</li>
+      <li>Emergency contact collection</li>
+      <li>Age verification — confirms registrant is parent/guardian</li>
+    </ul>
+
+    <p style="font-size:14px;font-weight:700;color:#000;margin:20px 0 12px;">Security</p>
+    <ul class="feature-list">
+      <li>SSL certificate (HTTPS) — required by Stripe</li>
+      <li>Custom domain email (booking@migoworldent.com)</li>
+      <li>2-factor authentication on all accounts</li>
+      <li>CAPTCHA on all public forms</li>
+      <li>Weekly automated backups</li>
+    </ul>
+  </div>
+
+  <!-- TECH STACK -->
+  <div class="section">
+    <div class="section-label">Tech Stack</div>
+    <div class="stack-row"><span class="stack-function">Website</span><span class="stack-tool">Framer Pro</span><span class="stack-cost">~$25/mo</span></div>
+    <div class="stack-row"><span class="stack-function">Online payments</span><span class="stack-tool">Stripe</span><span class="stack-cost">2.9% + $0.30</span></div>
+    <div class="stack-row"><span class="stack-function">In-person payments</span><span class="stack-tool">Helcim</span><span class="stack-cost">Interchange+</span></div>
+    <div class="stack-row"><span class="stack-function">Merch fulfillment</span><span class="stack-tool">Printful</span><span class="stack-cost">Per order</span></div>
+    <div class="stack-row"><span class="stack-function">Music smart link</span><span class="stack-tool">Linkfire</span><span class="stack-cost">Free</span></div>
+    <div class="stack-row"><span class="stack-function">Livestreaming</span><span class="stack-tool">YouTube Live</span><span class="stack-cost">Free</span></div>
+    <div class="stack-row"><span class="stack-function">Email marketing</span><span class="stack-tool">Mailchimp</span><span class="stack-cost">Free</span></div>
+    <div class="stack-row"><span class="stack-function">Forms + waivers</span><span class="stack-tool">Tally.so</span><span class="stack-cost">Free</span></div>
+    <div class="stack-row"><span class="stack-function">Domain</span><span class="stack-tool">migoworldent.com</span><span class="stack-cost">~$10/yr</span></div>
+    <div class="stack-row"><span class="stack-function">Analytics</span><span class="stack-tool">Google Analytics</span><span class="stack-cost">Free</span></div>
+
+    <div class="callout" style="margin-top:20px;">
+      <div class="callout-title">Total Monthly Cost</div>
+      <div class="callout-value">~$25/mo</div>
+      <div class="callout-sub">Just the Framer subscription — everything else is free or pay-per-transaction</div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="section">
+    <div class="section-label">Timeline</div>
+    <div class="timeline-item"><div class="timeline-day">Day 1</div><div class="timeline-text">Client info gathering — bio, photos, music links, brand colors, social handles</div></div>
+    <div class="timeline-item"><div class="timeline-day">Days 2–4</div><div class="timeline-text">Site design + structure — client reviews and approves</div></div>
+    <div class="timeline-item"><div class="timeline-day">Days 4–5</div><div class="timeline-text">Payment setup — Stripe + Helcim accounts, test checkout</div></div>
+    <div class="timeline-item"><div class="timeline-day">Days 5–7</div><div class="timeline-text">Content population — music, events, merch, photos</div></div>
+    <div class="timeline-item"><div class="timeline-day">Days 7–9</div><div class="timeline-text">Legal pages + security setup</div></div>
+    <div class="timeline-item"><div class="timeline-day">Days 9–10</div><div class="timeline-text">Testing + launch</div></div>
+    <div class="timeline-item"><div class="timeline-day">Ongoing</div><div class="timeline-text">Post-launch support + tweaks</div></div>
+
+    <div class="callout" style="margin-top:20px;">
+      <div class="callout-title">Estimated Launch</div>
+      <div class="callout-value">4 Days to 2 Weeks</div>
+      <div class="callout-sub">Faster you get us the content, faster we go live</div>
+    </div>
+  </div>
+
+  <!-- WHAT WE NEED -->
+  <div class="section">
+    <div class="section-label">What We Need From You</div>
+
+    <div class="checklist-group">
+      <h3>Branding</h3>
+      <div class="check-item"><div class="check-box"></div>Confirm domain: migoworldent.com</div>
+      <div class="check-item"><div class="check-box"></div>Brand colors (or leave to designer)</div>
+      <div class="check-item"><div class="check-box"></div>Logo (existing or we create one)</div>
+      <div class="check-item"><div class="check-box"></div>Professional photos (high-res)</div>
+    </div>
+
+    <div class="checklist-group">
+      <h3>Music</h3>
+      <div class="check-item"><div class="check-box"></div>Spotify artist link</div>
+      <div class="check-item"><div class="check-box"></div>Apple Music link</div>
+      <div class="check-item"><div class="check-box"></div>YouTube channel link</div>
+      <div class="check-item"><div class="check-box"></div>SoundCloud / other platforms</div>
+      <div class="check-item"><div class="check-box"></div>Which release to feature first</div>
+    </div>
+
+    <div class="checklist-group">
+      <h3>Events</h3>
+      <div class="check-item"><div class="check-box"></div>Upcoming events (dates + venues)</div>
+      <div class="check-item"><div class="check-box"></div>Past event photos</div>
+      <div class="check-item"><div class="check-box"></div>Event flyers</div>
+    </div>
+
+    <div class="checklist-group">
+      <h3>Store</h3>
+      <div class="check-item"><div class="check-box"></div>Merch items (products, sizes, colors)</div>
+      <div class="check-item"><div class="check-box"></div>Merch photos + pricing</div>
+    </div>
+
+    <div class="checklist-group">
+      <h3>Bookings</h3>
+      <div class="check-item"><div class="check-box"></div>Short bio + long bio</div>
+      <div class="check-item"><div class="check-box"></div>Performance types offered</div>
+      <div class="check-item"><div class="check-box"></div>Booking contact email</div>
+    </div>
+
+    <div class="checklist-group">
+      <h3>Social Media Handles</h3>
+      <div class="check-item"><div class="check-box"></div>Instagram</div>
+      <div class="check-item"><div class="check-box"></div>TikTok</div>
+      <div class="check-item"><div class="check-box"></div>Twitter / X</div>
+      <div class="check-item"><div class="check-box"></div>YouTube</div>
+      <div class="check-item"><div class="check-box"></div>Spotify</div>
+      <div class="check-item"><div class="check-box"></div>Snapchat</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>Prepared by Danny · September 10, 2026</p>
+    <p style="margin-top:4px;">migoworldent.com · Migo World Entertainment LLC</p>
+  </div>
+
+</div>
+</body>
+</html>
